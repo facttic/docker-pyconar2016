@@ -9,6 +9,7 @@ uwsgi:
   build: .
   links:
     - postgres
+    - smtp
   command: ./uwsgi.sh
   volumes:
     - /static
@@ -21,3 +22,5 @@ nginx:
     - uwsgi
   ports:
     - "0.0.0.0:80:80"
+smtp:
+  image: namshi/smtp
