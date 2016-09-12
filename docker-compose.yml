@@ -12,15 +12,16 @@ uwsgi:
     - smtp
   command: ./uwsgi.sh
   volumes:
+    - ./code/project:/project
     - /static
     - ./data/media:/media
 nginx:
-  build: ./nginx 
+  build: ./nginx
   links:
     - uwsgi
   volumes_from:
     - uwsgi
   ports:
-    - "0.0.0.0:80:80"
+    - "8000:80"
 smtp:
   image: namshi/smtp
