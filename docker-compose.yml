@@ -1,5 +1,5 @@
 postgres:
-  image: postgres
+  image: postgres:9.5
   volumes:
     - ./data/postgres:/var/lib/postgresql/data
   environment:
